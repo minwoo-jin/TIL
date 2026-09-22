@@ -1,0 +1,22 @@
+## 2026-09-22 리눅스 5주차 Day6
+
+**오늘 배운 내용**
+- Linear RAID, RAID0, RAID1, RAID5의 디스크가 고장난 상황을 살펴보고 부팅이 가능하도록 설정.
+
+**개념**
+- 없음
+ 
+**명령어**
+- mdadm --run/--stop 장치이름 : 장치 가동/중지
+  
+**헷갈렸던 것 / 에러**
+- 없음
+ 
+**정리**
+- Linear RAID, RAID0, RAID1, RAID5에서 문제 발생 테스트와 조치를 배워봄
+  - 조치방법(emergancy mode에서)
+    - a. df : 장치 확인(예: 결함허용을 제공하는 RAID0, RAID5만 확인)
+    - b. mdadm --detail 장치이름 : 장치 작동상태 확인(예: 3개중 2개 가동 확인)
+    - c. mdadm --stop 장치이름 : 문제 발생한 장치 작동 중지
+    - d. nano /etc/fstab 편집(문제발생한 장치의 행 앞에 #붙여 주석처리)
+    - e. reboot
